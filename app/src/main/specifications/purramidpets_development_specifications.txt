@@ -1,0 +1,170 @@
+# Purramid Pets Application Development Specifications
+Purramid Pets is a classroom management tool that displays a virtual pet that students can adopt. Its actions and features help regulate studenet behavior.
+
+## Technical Implementation Notes
+- Service/Activity type: Foreground Service (PurrPetsService) + Settings Activity (PurrPetsActivity)
+- Free-form window support: Yes
+- Multi-window support: No
+- Requires permissions:
+  - SYSTEM_ALERT_WINDOW (for overlay - requested on first launch)
+  - FOREGROUND_SERVICE (automatic)
+  - POST_NOTIFICATIONS (Android 13+ - requested when creating first window)
+  - INTERNET (music access for Alarm)
+  - WAKE_LOCK
+  - RECEIVE_BOOT_COMPLETED
+- Database entities:
+  - 
+- Key dependencies:
+  - ViewModel: ClockViewModel (time state, settings)
+  - DAO: 
+	- 
+  - Repository: 
+  - Services: 
+  - Special: 
+  - Shared: 
+
+
+## RUNTIME EVENTS
+1. On first app launch, Pets opens in a windowed state.
+2. On launch, load saved user preferences.
+3. When the active pet changes, change the new active pet to user preferences.
+4. When app size changes, save the new size to user preferences.
+5. When app position changes, save the new position to user preferences.
+6. When the settings menu is closed, save user preferences.
+	6.1. Active pet
+	6.2. Pet data
+		6.2.1. Pet names
+		6.2.2. Pet types
+		6.2.3. Points assigned to each pet
+	6.3. Settings data for each pet
+		6.3.1. Mode
+		6.3.2. Background image
+		6.3.3. Music on/off state
+		6.3.4. Music custom URLs
+		6.3.5. Marathon on/off state
+		6.3.6. Universal value checkbox checked/unchecked state
+	6.4. All user-created alarms
+		6.4.1. Alarms are saved whether they are active or not.
+		6.4.2. Active alarms remain active on next app launch.
+
+
+## Default Values
+7. If there are no user preferences saved, use the following values:
+	7.1. Window size: 300 px by 300 px
+	7.2. Screen position: Top right corner of the screen
+		7.1.1. Top left corner of the screen for right-to-left languages like Arabic
+	7.3. Background image: Blur
+	7.4. Music on/off state: Off
+	7.5. Marathon on/off state: Off
+	7.6. Universal value checkbox state: Unchecked
+
+
+## USER INTERFACE
+
+### TITLE BAR
+8. A bar runs the width of the app window
+	8.1. Background color: E8D5B7
+	8.2. Height is 10% of the window height with the following limits:
+		8.3.1. The minimum height is 20 px
+		8.3.2. The maximum height is 50 px
+9. A drag anchor (ic_drag.xml) appears on the left end of the bar.
+10. A marquee appears in the center of the bar.
+	10.1. The marquee is a rectangle with rounded corners
+		10.1.1. Its background color is black.
+	10.2. Marquee text is 
+		10.2.1 bold font
+		10.2.1. the string "Purramid Pets" if no pet has been created.
+			10.2.1.1. The word Purramid is never translated
+		10.2.2. the name of the active pet if a pet has been created.
+	10.3. To the right of the marquee text is a drop-down arrow (ic_arrow_drop_down.xml)
+		10.3.1. Wehn the marquee is activated, the icon changes to ic_arrow_drop_up.xml
+11. A settings button (ic_settings.xml) appears on the right end of the bar.
+12. A full-screen button (ic_full_screen.xml) appears to the left of the settings button
+	12.1. When the full-screen button is activated, the icon changes to ic_windowed_screen.xml
+13. A minimize button (ic_minimize.xml) appears to the left of the full-screen button
+
+### PET SPACE
+14. This area is reserved for the pet and its animations
+	14.1. Height is 73% of the window height with the following exceptions
+		14.1.1. If the title bar reaches its minimum or maximum limits, any difference in height is offset by changing the height of the pet space.
+		14.1.2. If the action buttons reach their minimum or maximum limits, any difference in height is offset by changing the height of the pet space.
+		14.1.3. It is possible for both the title bar and the action buttons to reach their limits, in which case the pet space height would adjust to accommodate both.
+	14.2. If the user assigns a background, that image resizes with the window
+		14.2.1. If the background image dimensions do not match the pet space dimensions, the image is zoomed in so that all space is filled.
+			14.2.1.1. It is acceptable that some of the image will be lost
+			14.2.1.2. Zoom is anchored to the center of the background
+			14.2.1.3. For example, if the window size is changed so that the background width does not fill the entirety of the pet space, the background image zooms in to fill the space. This will cause some of the image top and bottom to be lost.
+			
+### ACTION BUTTONS
+15. Below the pet space and centered in the window are action buttons
+	15.1. Height for the action button area is 17% of the window height with the following limits:
+		15.1.1. The minimum height is 50 px
+		15.1.2. The maximum height is 80 px
+	15.2. A Redeem button (ic_redeem.xml) appears on the left
+	15.3. A Minus button appears to the right of the redeem button
+		15.3.1. This icon is 60% the size of the Redeem button
+	15.4. A circle with the number of current points appears to the right of the minus button
+	15.5. A Plus button appears to the right of the current points circle
+		15.5.1. This icon is 60% the size of the Redeem button
+
+
+## USER EXPERIENCE
+
+### TITLE BAR
+16. When a user press-and-holds the drag anchor:
+	16.1. The icon changes to an active state
+	16.2. The user can drag the window anywhere on the screen.
+		16.2.1. The window can never been dragged off the screen
+		16.2.2. When any edge of the window reaches any edge of the screen, no more movement in that direction is possible
+17. When a user taps the marquee text or the drop-down arrow:
+	17.1. The drop-down arrow rotates with a smooth animation to its active state
+	17.2. A drop-down menu extends from the marquee with a smooth animation
+	17.3. A list of pet names are displayed in the menu
+		17.3.1. The active pet name continues to appear in the marquee
+		17.3.2. The remaining pet names appear in the menu in alphanumeric order
+	17.4. Tapping a pet name:
+		17.4.1. Sets that pet as the active pet
+			17.4.1.1. If the name tapped is already the active pet, that pet remains active and the following steps still occur
+		17.4.2. Closes the drop-down menu with a smooth animation
+		17.4.3. Returns the drop-down arrow to its default state with a smooth animation
+	17.5. Tapping outside the bounds of the marquee drop-down
+		17.5.1. Closes the drop-down menu with a smooth animation
+		17.5.2. Returns the drop-down arrow to its default state with a smooth animation
+	17.6. If no pets have been created, the drop-down menu cannot be opened.
+18. When a user taps the minimize button:
+	18.1. the icon activates for the duration of the onTouch event
+	18.2. the app is closed
+		18.2.1. This is not a Destroy event
+		18.2.2. If the user taps the app icon to launch the app again, it returns the app to its previous state before being minimized
+		18.2.3. Any background services (e.g., an alarm or music) continues to run while minimized
+19. When a user taps the full-screen button:
+	19.1. the icon activates for the duration of the onTouch event
+	19.2. the icon changes to its active state (ic_windowed_screen.xml)
+	19.3. the app window fills the entire screen
+		19.4. all rules for resizing apply in this scenario as well
+20. When a user taps the windowed-screen button:
+	20.1. the icon activates for the duration of the onTouch event
+	20.2. the icon changees to is default state (ic_full_screen.xm)
+	19.3. the app window returns to the size it was before being made full-screen.
+		19.3.1. If size data has been lost, return to default size
+	19.4. the app window returns to the screen position it was in before being made full-screen
+		19.4.1. If position data has been lost, return to the default location
+21. When a user taps the settings button:
+	21.1. the icon activates
+	21.2. a settings window opens at the center of the screen
+		21.2.1 the settings window is 400 px wide
+		21.2.2. determine the necessary window height based on the settings listed below so that all settings buttons are the same size
+
+#### SETTINGS WINDOW
+22. 
+	
+
+### PET SPACE
+
+
+### ACTION BUTTONS
+
+
+
+### Tooltips and Descriptive Text
+
