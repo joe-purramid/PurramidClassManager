@@ -28,6 +28,11 @@
 - Drawables: ic_* for icons, bg_* for backgrounds
 - Strings: Organized by feature in strings.xml
 
+## Localization
+- Logs can be in English only
+- All other text should be implemented as strings
+- "Purramid" is never translated
+
 ## Button Activation
 - Button icons will be 757575 when inactive (default state)
 - Button icons will be 2196F3 when active (active state)
@@ -46,3 +51,10 @@
 	- Accept buttons
 		- Appear on the right
 		- Have a color 2196F3 for the background fill and the outline
+		
+## Tooltips and Descriptive Text
+- Action buttons should include descriptive strings for accessibility readers
+- Icons should include a tooltip string
+	- Tooltips should appear with a long press-and-hold touch
+	- The tooltip box should include a tail that points at the icon in question
+	- Tooltips remain visible until the user taps the screen again
