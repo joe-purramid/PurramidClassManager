@@ -307,6 +307,13 @@ Purramid Pets is a classroom management tool that displays a virtual pet that st
 			23.4.7.1. To the right of the string is an On/Off toggle
 				23.4.7.2. The strings "On" and "Off" are included within the toggle
 				23.4.7.3. The background color for the On toggle is 2196F3
+			23.4.7.2. To the right of the toggle is a discreet box that is not part of the Marathon button
+				23.4.7.2.1. The box includes an information icon (ic_info.xml)
+					23.4.7.2.1.1. The icon color is always 2196F3
+					23.4.7.2.1.2. Icon thickness should be bolder than other icons
+				23.4.7.2.2. Tapping the info button opens a snackbar with the string "When Marathon is on, pet animations will continue until the screen is tapped."
+					23.4.7.2.2.1. Tapping outside the snackbar closes the snackbar
+					23.4.7.2.2.2. If the user taps the Marathon button while the snackbar is open, the Marathon toggle changes state
 
 
 ### PET SPACE
