@@ -15,16 +15,15 @@ Purramid Pets is a classroom management tool that displays a virtual pet that st
 - Database entities:
   - 
 - Key dependencies:
-  - ViewModel: ClockViewModel (time state, settings)
+  - ViewModel: 
   - DAO: 
-	- 
   - Repository: 
   - Services: 
   - Special: 
   - Shared: 
 
 
-## RUNTIME EVENTS
+## **RUNTIME EVENTS**
 1. On app launch load saved user preferences 
 2. On app focus, query system for an available microphone
 3. When the active pet changes, change the new active pet to user preferences.
@@ -50,7 +49,7 @@ Purramid Pets is a classroom management tool that displays a virtual pet that st
 		6.4.2. Active alarms remain active on next app launch.
 
 
-## Default Values
+## **Default Values**
 7. If there are no user preferences saved, use the following values:
 	7.1. Window size: 300 px by 300 px
 	7.2. Screen position: Top right corner of the screen
@@ -211,81 +210,81 @@ Purramid Pets is a classroom management tool that displays a virtual pet that st
 			23.4.2.2. To the right of the string is an edit button (ic_edit.xml)
 			23.4.2.3. When the user taps the button, a new window replaces the settings menu with a slide animation
 			23.4.2.4. The Responsive Mode Rules menu includes the following elements:
-				23.4.2.1. A back button (ic_back.xml) that returns the user to the settings window with a slide animation
-				23.4.2.2. A header string "MODE SELECTION" centered at the top of the window
-				23.4.2.3. A close button (ic_close_xml) at the top right of the window that closes the Mode Selection window AND the Settings window
-					23.4.2.3.1. If a user taps the screen outside of the Mode Selection window, both the Mode Selection and Settings windows close
-				23.4.2.4. A rule (line) that separates the header from the menu buttons.
-					23.4.2.4.1. Its width is the width of the window minus 10 px on each side
-					23.4.2.4.2. The rule does not connect with the window border
-				23.4.2.5. A "green" volume row that includes the following:
-					23.4.2.5.1. A bright green circle on the far left
-					23.4.2.5.2. A text field to the right of the green circle
-						23.4.2.5.2.1. the default value is 59
-						23.4.2.5.2.2. If a user taps on the text field:
-							23.4.2.5.2.2.1. a cursor appears after the number
-							23.4.2.5.2.2.2. the system numberpad opens
-						23.4.2.5.2.3. If a user taps enter on the numberpad or tabs outside of the text field in the menu window:
-							23.4.2.5.2.3.1. the cursor is removed
-							23.4.2.5.2.3.2. the system numberpad closes
-					23.4.2.5.3. A string to the right of the text field that says "dB or less"
-					23.4.2.5.4. A drop-down menu with the selected animation and a drop-down arrow on the far right.
-						23.4.2.5.4.1. When a user taps the menu or the arrow:
-							23.4.2.5.4.1.1. The arrow rotates in a smooth animation to face upuward
-							23.4.2.5.4.1.2. A drop-down menu opens with a smooth animation
-							23.4.2.5.4.1.3. A menu displays animation options
-								23.4.5.4.1.3.1. The current animation shows in the original drop-down menu field
-								23.4.5.4.1.3.2. The remaining animation options are listed in alphanumeric order
-							23.4.2.5.4.1.4. Animation options are:
-								23.4.2.5.4.1.4.1. Angry
-								23.4.2.5.4.1.4.2. Cower
-								23.4.2.5.4.1.4.3. Cry
-								23.4.2.5.4.1.4.4. Ear plugs
-								23.4.2.5.4.1.4.5. Happy
-								23.4.2.5.4.1.4.6. Sleep
-						23.4.2.5.4.2. The default animation for green is "Sleep"
-				23.4.2.6. A "yellow" volume row that includes the following:
-					23.4.2.6.1. A bright yellow circle on the far left
-					23.4.2.6.2. A text field to the right of the yellow circle
-						23.4.2.6.2.1 the default value is 60
-						23.4.2.6.2.2. If a user taps on the text field:
-							23.4.2.6.2.2.1. a cursor appears after the number
-							23.4.2.6.2.2.2. the system numberpad opens
-						23.4.2.6.2.3. If a user taps enter on the numberpad or tabs outside of the text field in the menu window:
-							23.4.2.6.2.3.1. the cursor is removed
-							23.4.2.6.2.3.2. the system numberpad closes
-					23.4.2.6.3. A string to the right of the text field that says "dB" followed by an en dash.
-					23.4.2.6.4. A second text field with the same behavior as the first
-						23.4.2.6.4.1. the default value is 79
-					23.4.2.6.5. A drop-down menu with the selected animation and a drop-down arrow on the far right.
-						23.4.2.6.5.1. When a user taps the menu or the arrow:
-							23.4.2.6.5.1.1. The arrow rotates in a smooth animation to face upuward
-							23.4.2.6.5.1.2. A drop-down menu opens with a smooth animation
-							23.4.2.6.5.1.3. A menu displays animation options
-								23.4.2.6.5.1.3.1. The current animation shows in the original drop-down menu field
-								23.4.2.6.5.1.3.2. The remaining animation options are listed in alphanumeric order
-							23.4.2.6.5.1.4. Animation options are the same as for green
-						23.4.2.6.5.2. The default animation for yellow is "ear plugs"
-				23.4.2.7. A "red" volumem row that includes the following:
-					23.4.2.7.1. A bright red circle on the far left
-					23.4.2.7.2. A text field to the right of the red circle
-						23.4.2.7.2.1. the default value is 80
-						23.4.2.7.2.2. If a user taps on the text field:
-							23.4.2.7.2.2.1. a cursor appears after the number
-							23.4.2.7.2.2.2. the system numberpad opens
-						23.4.2.7.2.3. If a user taps enter on the numberpad or tabs outside of the text field in the menu window:
-							23.4.2.7.2.3.1. the cursor is removed
-							23.4.2.7.2.3.2. the system numberpad closes
-					23.4.2.7.3. A string to the right of the text field that says "dB or more"
-					23.4.2.7.4. A drop-down menu with the selected animation and a drop-down arrow on the far right.
-						23.4.2.7.4.1. When a user taps the menu or the arrow:
-							23.4.2.7.4.1.1. The arrow rotates in a smooth animation to face upuward
-							23.4.2.7.4.1.2. A drop-down menu opens with a smooth animation
-							23.4.2.7.4.1.3. A menu displays animation options
-								23.4.7.4.1.3.1. The current animation shows in the original drop-down menu field
-								23.4.7.4.1.3.2. The remaining animation options are listed in alphanumeric order
-							23.4.2.7.4.1.4. Animation options are the same as for green
-						23.4.2.7.4.2. The default animation for red is "crying"
+				23.4.2.4.1. A back button (ic_back.xml) that returns the user to the settings window with a slide animation
+				23.4.2.4.2. A header string "MODE SELECTION" centered at the top of the window
+				23.4.2.4.3. A close button (ic_close_xml) at the top right of the window that closes the Mode Selection window AND the Settings window
+					23.4.2.4.3.1. If a user taps the screen outside of the Mode Selection window, both the Mode Selection and Settings windows close
+				23.4.2.4.4. A rule (line) that separates the header from the menu buttons.
+					23.4.2.4.4.1. Its width is the width of the window minus 10 px on each side
+					23.4.2.4.4.2. The rule does not connect with the window border
+				23.4.2.4.5. A "green" volume row that includes the following:
+					23.4.2.4.5.1. A bright green circle on the far left
+					23.4.2.4.5.2. A text field to the right of the green circle
+						23.4.2.4.5.2.1. the default value is 59
+						23.4.2.4.5.2.2. If a user taps on the text field:
+							23.4.2.4.5.2.2.1. a cursor appears after the number
+							23.4.2.4.5.2.2.2. the system numberpad opens
+						23.4.2.4.5.2.3. If a user taps enter on the numberpad or tabs outside of the text field in the menu window:
+							23.4.2.4.5.2.3.1. the cursor is removed
+							23.4.2.4.5.2.3.2. the system numberpad closes
+					23.4.2.4.5.3. A string to the right of the text field that says "dB or less"
+					23.4.2.4.5.4. A drop-down menu with the selected animation and a drop-down arrow on the far right.
+						23.4.2.4.5.4.1. When a user taps the menu or the arrow:
+							23.4.2.4.5.4.1.1. The arrow rotates in a smooth animation to face upuward
+							23.4.2.4.5.4.1.2. A drop-down menu opens with a smooth animation
+							23.4.2.4.5.4.1.3. A menu displays animation options
+								23.4.2.4.5.4.1.3.1. The current animation shows in the original drop-down menu field
+								23.4.2.4.5.4.1.3.2. The remaining animation options are listed in alphanumeric order
+							23.4.2.4.5.4.1.4. Animation options are:
+								23.4.2.4.5.4.1.4.1. Cower
+								23.4.2.4.5.4.1.4.2. Cry
+								23.4.2.4.5.4.1.4.3. Ear plugs
+								23.4.2.4.5.4.1.4.4. Happy
+								23.4.2.4.5.4.1.4.5. Prance
+								23.4.2.4.5.4.1.4.6. Sleep
+						23.4.2.4.5.4.2. The default animation for green is "Sleep"
+				23.4.2.4.6. A "yellow" volume row that includes the following:
+					23.4.2.4.6.1. A bright yellow circle on the far left
+					23.4.2.4.6.2. A text field to the right of the yellow circle
+						23.4.2.4.6.2.1 the default value is 60
+						23.4.2.4.6.2.2. If a user taps on the text field:
+							23.4.2.4.6.2.2.1. a cursor appears after the number
+							23.4.2.4.6.2.2.2. the system numberpad opens
+						23.4.2.4.6.2.3. If a user taps enter on the numberpad or tabs outside of the text field in the menu window:
+							23.4.2.4.6.2.3.1. the cursor is removed
+							23.4.2.4.6.2.3.2. the system numberpad closes
+					23.4.2.4.6.3. A string to the right of the text field that says "dB" followed by an en dash.
+					23.4.2.4.6.4. A second text field with the same behavior as the first
+						23.4.2.4.6.4.1. the default value is 79
+					23.4.2.4.6.5. A drop-down menu with the selected animation and a drop-down arrow on the far right.
+						23.4.2.4.6.5.1. When a user taps the menu or the arrow:
+							23.4.2.4.6.5.1.1. The arrow rotates in a smooth animation to face upuward
+							23.4.2.4.6.5.1.2. A drop-down menu opens with a smooth animation
+							23.4.2.4.6.5.1.3. A menu displays animation options
+								23.4.2.4.6.5.1.3.1. The current animation shows in the original drop-down menu field
+								23.4.2.4.6.5.1.3.2. The remaining animation options are listed in alphanumeric order
+							23.4.2.4.6.5.1.4. Animation options are the same as for green
+						23.4.2.4.6.5.2. The default animation for yellow is "ear plugs"
+				23.4.2.4.7. A "red" volumem row that includes the following:
+					23.4.2.4.7.1. A bright red circle on the far left
+					23.4.2.4.7.2. A text field to the right of the red circle
+						23.4.2.4.7.2.1. the default value is 80
+						23.4.2.4.7.2.2. If a user taps on the text field:
+							23.4.2.4.7.2.2.1. a cursor appears after the number
+							23.4.2.4.7.2.2.2. the system numberpad opens
+						23.4.2.4.7.2.3. If a user taps enter on the numberpad or tabs outside of the text field in the menu window:
+							23.4.2.4.7.2.3.1. the cursor is removed
+							23.4.2.4.7.2.3.2. the system numberpad closes
+					23.4.2.4.7.3. A string to the right of the text field that says "dB or more"
+					23.4.2.4.7.4. A drop-down menu with the selected animation and a drop-down arrow on the far right.
+						23.4.2.4.7.4.1. When a user taps the menu or the arrow:
+							23.4.2.4.7.4.1.1. The arrow rotates in a smooth animation to face upuward
+							23.4.2.4.7.4.1.2. A drop-down menu opens with a smooth animation
+							23.4.2.4.7.4.1.3. A menu displays animation options
+								23.4.8.4.1.3.1. The current animation shows in the original drop-down menu field
+								23.4.8.4.1.3.2. The remaining animation options are listed in alphanumeric order
+							23.4.2.4.7.4.1.4. Animation options are the same as for green
+						23.4.2.4.7.4.2. The default animation for red is "crying"
 
 ##### PET MANAGER
 		23.4.3. Pet Manager
@@ -294,35 +293,143 @@ Purramid Pets is a classroom management tool that displays a virtual pet that st
 ##### REWARDS MANAGER
 		23.4.4. Rewards Manager
 			23.4.4.1. To the right of the string is an edit button
+            
+            Bicycle ramp jump
+            Celebration
+            Dance party
+            Rave
+            Treat: 
+                Kibble
+                Paste
+            Trick:
+                Roll in a circle
+                Shake hands
+                Stand and flip
+                
+
+##### MUSIC ON/OFF TOGGLE
+		23.4.5. Music Manaager
+			23.4.5.1. To the right of the string is an On/Off toggle
+				23.4.5.1.1. The strings "On" and "Off" are included within the toggle
+				23.4.5.1.2. The background color for the On toggle is 2196F3
+            23.4.5.2. When the toggle is set to "On", the music navigation bar UI appears, as per 16. Music Navigation Bar
+            23.4.5.3. When the toggle is set to "Off", the music navigation bar UI is hidden
 
 ##### MUSIC MANAGER
-		23.4.5. Music Manaager
-			23.4.5.1. To the right of the string is an edit button
+		23.4.6. Music Manaager
+			23.4.6.1. To the right of the string is an edit button
+            
+            
+                    (9.2.2.6.2.3) Below the back arrow and close button is a row consisting of:
+            (9.2.2.6.2.3.1) the string "Music URL"
+            (9.2.2.6.2.3.2) a text field
+                (9.2.2.6.2.3.2.1) the text field includes the text (not string) https://
+                    (9.2.2.6.2.3.2.1.1) the text is gray in color
+                    (9.2.2.6.2.3.2.1.2) this text disappears when the user taps into the text field.
+                (9.2.2.6.2.3.2.2) if the user taps the text field, the system keyboard opens
+                    (9.2.2.6.2.3.2.2.1) once the cursor is present in the text field, a press-hold event allows the user to paste URL text from the system clipboard
+            (9.2.2.6.2.3.3) a play button
+                (9.2.2.6.2.3.3.1) Default state: ic_play.xml
+                (9.2.2.6.2.3.3.2) Active state: programmatically changes the fill color of the default icon to #808080.
+                (9.2.2.6.2.3.3.3) If the user taps the play button
+                    (9.2.2.6.2.3.3.3.1) The play icon changes to its active state
+                    (9.2.2.6.2.3.3.3.2) The music URL is played
+                        (9.2.2.6.2.3.3.3.2.1) If no supported music is at the defined URL, a snackbar warning opens that says "This is not a valid music URL. Please provide an updated URL to play."
+                        (9.2.2.6.2.3.3.3.2.2) The music plays until
+                            (9.2.2.6.2.3.3.3.2.2.1) the user taps the play button again
+                            (9.2.2.6.2.3.3.3.2.2.2) the user taps anywhere else on the screen
+                            (9.2.2.6.2.3.3.3.2.2.3) the music ends
+                                (9.2.2.6.2.3.3.3.2.2.3.1) music does not loop
+                    (9.2.2.6.2.3.3.3.3) Once music ends or is stopped, the play icon changes to its default state.
+        (9.2.2.6.2.4) Below the music URL are the three most recently used URLs
+            (9.2.2.6.2.4.1) The most recently used URL is on top
+            (9.2.2.6.2.4.2) The least recently used URL is on bottom
+            (9.2.2.6.2.4.3) If the user taps one of these URLs
+                (9.2.2.6.2.4.3.1) it moves to the top of the three URL list
+                (9.2.2.6.2.4.3.2) the URL text is added to the text field.
+            (9.2.2.6.2.4.4) If the user adds a new music URL to the (9.2.2.6.2.3.2) text field, it will appear on the top of these three URLs the next time the user opens the settings.
+        (9.2.2.6.2.5) If the user opens the Music URL setting after having added a URL previously during this app-intent active session, the URL appears
+            (9.2.2.6.2.5.1) in the (9.2.2.6.2.3.2) text field
+            (9.2.2.6.2.5.2) on the top entry of the three most recently used URLs.
+
 
 ##### ALARM
-		23.4.6. Alarm
+		23.4.7. Alarm
+            23.4.7.1. When the user taps the button, a new window replaces the settings menu with a slide animation
+            23.4.7.2. The alarm window includes the following elements:
+				23.4.7.2.1. A back button (ic_back.xml) that returns the user to the settings window with a slide animation
+				23.4.7.2.2. A header string "ALARM" centered at the top of the window
+				23.4.7.2.3. A close button (ic_close_xml) at the top right of the window that closes the Mode Selection window AND the Settings window
+					23.4.7.2.3.1. If a user taps the screen outside of the Mode Selection window, both the Mode Selection and Settings windows close
+				23.4.7.2.4. A rule (line) that separates the header from the menu buttons.
+					23.4.7.2.4.1. Its width is the width of the window minus 10 px on each side
+					23.4.7.2.4.2. The rule does not connect with the window border
+                23.4.7.2.5. Below the rule is a list of up to eight rows, each containing one alarm
+                    23.4.7.2.5.1. If there are seven or fewer alarms, the final row includes the string "Add an alarm" followed by an add button (ic_add_circle.xml)
+                    23.4.7.2.5.2. Each alarm row includes the following:
+                        23.4.7.2.5.2.1. The alarm set time
+                            23.4.7.2.5.2.1.1. Use the system time settings to display time as either a 12-hour or 24-hour clock
+                        23.4.7.2.5.2.2. The animation string assigned to that error
+                        23.4.7.2.5.2.3. A drop-down arrow (ic_chevron_down.xml) to expand the alarm view
+                        23.4.7.2.5.2.4. Any days if the specifies on which days it goes off
+            23.4.7.3. If the user taps an alarm row or its drop-down arrow:
+                23.4.7.3.1. The arrow rotates in a smooth animation to face upward (ic_chevron_up.xml)
+                23.4.7.3.2. The alarm menu expands in a smooth animation to show the alarm interface
+            23.4.7.4. These alarm features can be modeled after the Android system alarm (but should not use the Android system alarm):
+                23.4.7.4.1. Time setting
+                23.4.7.4.2. Repeat and day selection options
+                23.4.7.4.3. Sound options
+                    23.4.7.4.3.1. Offer any alarm sounds installed on the system
+                    23.4.7.4.3.2. Offer any music added by the user in the Music MANAGER
+                23.4.7.4.4. Animations
+                    23.4.7.4.4.1. This is a new feature specific to PurramidPets
+                    23.4.7.4.4.2. This is a drop down menu, followed by a drop-down arrow (ic_arrow_drop_down.xml)
+                        23.4.7.4.4.2.1. When opened:
+                            23.4.7.4.4.2.1.1. the arrow rotates with a smooth animation to face updward (ic_arrow_drop_up.xml)
+                            23.4.7.4.4.2.1.2. the drop-down menu opens with a smooth animation
+                            23.4.7.4.4.2.1.3. a list of animations from the Rewards feature is displayed
+                                23.4.7.4.4.2.1.3.1. if one has already been assigned, that animation shows in the drop-down view
+                                23.4.7.4.4.2.1.3.2. all other animations are listed in alphabetical order
+                        23.4.7.4.4.2.2. When an animation is selected:
+                            23.4.7.4.4.2.2.1. the arrow rotates with a smooth animation to face down
+                            23.4.7.4.4.2.2.2. the drop-down menu closes with a smooth animation
+                            23.4.7.4.4.2.2.3. the selected animation string appears in the menu field
+                    23.4.7.4.4.3. If the user creates an alarm without assigning an animation, "Celebration" is automatically assigned.
+                23.4.7.4.6. Delete (ic_delete.xml)
+                    23.4.7.4.6.1. When the user taps this icon, a snackbar opens with the warning, "Deleting this alarm cannot be undone. Do you want to delete it?
+                        23.4.7.4.6.1.1. The snackbar includes a Cancel button, with the string "Cancel"
+                            23.4.7.4.6.1.1.1. Tapping this button returns the user to the alarm view with data unchanged
+                        23.4.7.4.6.1.2. The snackbar includes a Delete button, with the string "Delete"
+                            23.4.7.4.6.1.2.1. Tapping this button retunrs the user to the alarm and this alarm entry is removed from the list
+                            23.4.7.4.6.1.2.2. If there had been a maximum number of alarms, the "Add Alarm" row reappears.            
+            23.4.7.5. Alarms are ordered numerically by time, with the earliest alarm being at the top
 
 ##### MARATHON (On/Off)
-		23.4.7. Marathon
-			23.4.7.1. To the right of the string is an On/Off toggle
-				23.4.7.2. The strings "On" and "Off" are included within the toggle
-				23.4.7.3. The background color for the On toggle is 2196F3
-			23.4.7.2. To the right of the toggle is a discreet box that is not part of the Marathon button
-				23.4.7.2.1. The box includes an information icon (ic_info.xml)
-					23.4.7.2.1.1. The icon color is always 2196F3
-					23.4.7.2.1.2. Icon thickness should be bolder than other icons
-				23.4.7.2.2. Tapping the info button opens a snackbar with the string "When Marathon is on, pet animations will continue until the screen is tapped."
-					23.4.7.2.2.1. Tapping outside the snackbar closes the snackbar
-					23.4.7.2.2.2. If the user taps the Marathon button while the snackbar is open, the Marathon toggle changes state
+		23.4.8. Marathon
+			23.4.8.1. To the right of the string is an On/Off toggle
+				23.4.8.1.1. The strings "On" and "Off" are included within the toggle
+				23.4.8.1.2. The background color for the On toggle is 2196F3
+			23.4.8.2. To the right of the toggle is a discreet box that is not part of the Marathon button
+				23.4.8.2.1. The box includes an information icon (ic_info.xml)
+					23.4.8.2.1.1. The icon color is always 2196F3
+					23.4.8.2.1.2. Icon thickness should be bolder than other icons
+				23.4.8.2.2. Tapping the info button opens a snackbar with the string "When Marathon is on, pet animations will continue until the screen is tapped."
+					23.4.8.2.2.1. Tapping outside the snackbar closes the snackbar
+					23.4.8.2.2.2. If the user taps the Marathon button while the snackbar is open, the Marathon toggle changes state
+            23.4.8.3. When Marathon is toggled "On", animations loop and must be stopped by the user tapping the screen
+            23.4.8.4. When Marathon is toggled "Off", animations play for 4 seconds and then stop.
 
 
 ### PET SPACE
+24.
 
 #### REWARDS MODE FUNCTIONALITY
 
 
 #### RESPONSIVE MODE FUNCTIONALITY
 
+
+#### ALARM FUNCTIONALITY
 
 
 ### ACTION BUTTONS
@@ -333,7 +440,7 @@ Purramid Pets is a classroom management tool that displays a virtual pet that st
 x. Coloring must meet WCAG 2.2 AA contrast standards
 x. Users may use a connected keyboard or switch to navigate the app interface
 	x.1. When navigating with a connected device, a focus box appears around the currently selected text, image, or button
-		x.1.1. Focus box color is 
+		x.1.1. Focus box color is 1976D2
 	x.2. Focus box moves in a logical order, left to right, top to bottom
 		x.2.1. A focus box should not jump around the screen but follow an easily discernable pattern
 	x.3. Reference purramid_accessible_navigation.xml for key-specific requirements
