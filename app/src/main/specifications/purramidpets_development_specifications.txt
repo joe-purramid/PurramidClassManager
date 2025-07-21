@@ -39,11 +39,10 @@ Purramid Pets is a classroom management tool that displays a virtual pet that st
 		6.3.1. Mode
 		6.3.2. Responsive Mode decible values
 		6.3.3. Responsive Mode animations
-		6.3.4. Background image
-		6.3.5. Music on/off state
-		6.3.6. Music custom URLs
-		6.3.7. Marathon on/off state
-		6.3.8. Universal value checkbox checked/unchecked state
+		6.3.4. Music on/off state
+		6.3.5. Music custom URLs
+		6.3.6. Marathon on/off state
+		6.3.7. Universal value checkbox checked/unchecked state
 	6.4. All user-created alarms
 		6.4.1. Alarms are saved whether they are active or not.
 		6.4.2. Active alarms remain active on next app launch.
@@ -55,10 +54,9 @@ Purramid Pets is a classroom management tool that displays a virtual pet that st
 	7.2. Screen position: Top right corner of the screen
 		7.2.1. Offset by 50 px from the top and right edges
 		7.2.2. Top left corner of the screen for right-to-left languages like Arabic
-	7.3. Background image: Blur
-	7.4. Music on/off state: Off
-	7.5. Marathon on/off state: Off
-	7.6. Universal value checkbox state: Unchecked
+	7.3. Music on/off state: Off
+	7.4. Marathon on/off state: Off
+	7.5. Universal value checkbox state: Unchecked
 
 
 ## **USER INTERFACE**
@@ -90,13 +88,13 @@ Purramid Pets is a classroom management tool that displays a virtual pet that st
 	14.1. Height is 73% of the window height with the following exceptions
 		14.1.1. If the title bar reaches its minimum or maximum limits, any difference in height is offset by changing the height of the pet space.
 		14.1.2. If the action buttons reach their minimum or maximum limits, any difference in height is offset by changing the height of the pet space.
-		14.1.3. 
+		14.1.3. If the music navigation bar is present, the difference in height is offset by changing the height of the pet space.
 		14.1.4. It is possible for two or all three scenarios to be in effect at once. The title bar and the action buttons may reach their limits and the music navigation bar may be visible, in which case the pet space height adjusts to accommodate all.
-	14.2. If the user assigns a background, that image resizes with the window
-		14.2.1. If the background image dimensions do not match the pet space dimensions, the image is zoomed in so that all space is filled.
-			14.2.1.1. It is acceptable that some of the image will be lost
-			14.2.1.2. Zoom is anchored to the center of the background
-			14.2.1.3. For example, if the window size is changed so that the background width does not fill the entirety of the pet space, the background image zooms in to fill the space. This will cause some of the image top and bottom to be lost.
+	14.2. There should be a 30 px buffer between title bar and the pet figure in the pet space
+    14.3. There should be a 30 px buffer between the action buttons and the pet figure in the pet space
+    14.4. The background of the pet space is blurred transparency of the screen beneath the app window
+        14.4.1. The blur should change direction at a line 35% above the bottom of the Pet Space, giving the illusion of a three-dimensional space
+    14.5. There should be a drop shadow beneath the pet.
 			
 ### ACTION BUTTONS
 15. Below the pet space and centered in the window are action buttons
@@ -104,10 +102,10 @@ Purramid Pets is a classroom management tool that displays a virtual pet that st
 		15.1.1. The minimum height is 50 px
 		15.1.2. The maximum height is 80 px
 	15.2. A Redeem button (ic_redeem.xml) appears on the left
-	15.3. A Minus button appears to the right of the redeem button
+	15.3. A Minus button (ic_point_neg.xml) appears to the right of the redeem button
 		15.3.1. This icon is 60% the size of the Redeem button
 	15.4. A circle with the number of current points appears to the right of the minus button
-	15.5. A Plus button appears to the right of the current points circle
+	15.5. A Plus button (ic_point_pos.xml) appears to the right of the current points circle
 		15.5.1. This icon is 60% the size of the Redeem button
 		
 ### MUSIC NAVIGATION BAR
@@ -337,20 +335,53 @@ Purramid Pets is a classroom management tool that displays a virtual pet that st
 ##### REWARDS MANAGER
 		23.4.4. Rewards Manager
 			23.4.4.1. To the right of the string is an edit button
-            
-            Bicycle ramp jump
-            Celebration
-            Dance party
-            Rave
-            Treat: 
-                Kibble
-                Paste
-            Trick:
-                Roll in a circle
-                Shake hands
-                Stand and flip
+			23.4.4.2. When the user taps the button, a new window replaces the settings menu with a slide animation
+			23.4.4.3. The Rewards Manager menu includes the following elements:
+				23.4.4.3.1. A back button (ic_back.xml) that returns the user to the settings window with a slide animation
+				23.4.4.3.2. A header string "REWARDS MANAGER" centered at the top of the window
+				23.4.4.3.3. A close button (ic_close_xml) at the top right of the window that closes the Mode Selection window AND the Settings window
+					23.4.4.3.3.1. If a user taps the screen outside of the Mode Selection window, both the Mode Selection and Settings windows close
+				23.4.4.3.4. A rule (line) that separates the header from the menu buttons.
+					23.4.4.3.4.1. Its width is the width of the window minus 10 px on each side
+					23.4.4.3.4.2. The rule does not connect with the window border
+				23.4.4.3.5. Below the rule is a list of seven rows.
+                    23.4.4.3.5.1. The first row includes:
+                        23.4.4.3.5.1.1. the string "Point Change Increment" on the far left
+                        23.4.4.3.5.1.2. the string "points" on the far right
+                        23.4.4.3.5.1.3. a text field to the left fo the string "points"
+                            23.4.4.3.5.1.3.1. The default value in the text field is 1
+                            23.4.4.3.5.1.3.2. If a user taps the text field
+                                23.4.4.3.5.1.3.2.1. a cursor appears after the number
+                                23.4.4.3.5.1.3.2.2. the system numberpad opens
+                            23.4.4.3.5.1.3.3. If a user taps enter on the numberpad or tabs outside of the text field in the menu window:
+                                23.4.4.3.5.1.3.3.1. the cursor is removed
+                                23.4.4.3.5.1.3.3.2. the system numberpad closes
+                        23.4.4.3.5.1.4. the string "Add/Subtract" to the left of the text field
+                    23.4.4.3.5.2. The next six rows included:
+                        23.4.4.3.5.2.1. A string of the reward type:
+                            23.4.4.3.5.2.1.1. "Bicycle jump"
+                            23.4.4.3.5.2.1.2. "Celebration"
+                            23.4.4.3.5.2.1.3. "Dance party"
+                            23.4.4.3.5.2.1.4. "Rave"
+                            23.4.4.3.5.2.1.5. "Treats"
+                            23.4.4.3.5.2.1.6. "Tricks"
+                        23.4.4.3.5.2.2. A text field to the right of each string
+                            23.4.4.3.5.2.2.1. The default value in each text field is 1
+                            23.4.4.3.5.2.2.2. If a user taps the text field
+                                23.4.4.3.5.2.2.2.1. a cursor appears after the number
+                                23.4.4.3.5.2.2.2.2. the system numberpad opens
+                            23.4.4.3.5.2.2.3. If a user taps enter on the numberpad or tabs outside of the text field in the menu window:
+                                23.4.4.3.5.2.2.3.1. the cursor is removed
+                                23.4.4.3.5.2.2.3.2. the system numberpad closes
+                        23.4.4.3.5.2.3. The string "point cost" to the rigt of the text field
+                        23.4.4.3.5.2.4. A play icon (ic_play.xml) on the far right of the row
+                            23.4.4.3.5.2.4.1. If the user taps the play button
+                                23.4.4.3.5.2.4.1.1. the butotn changes to an active state
+                                23.4.4.3.5.2.4.1.2. the reward plays in Pet Space of the app window (not the settings window)
+                                    23.4.4.3.5.2.4.1.2.1. The reward plays once regardless of whether Marathon is toggled on
+                                    23.4.4.3.5.2.4.1.2.2. "Treats" plays a random selection of one treat animation
+                                    23.4.4.3.5.2.4.1.2.3. "Tricks" plays a random selection of one trick animation            
                 
-
 ##### MUSIC ON/OFF TOGGLE
 		23.4.5. Music Manaager
 			23.4.5.1. To the right of the string is an On/Off toggle
@@ -362,40 +393,49 @@ Purramid Pets is a classroom management tool that displays a virtual pet that st
 ##### MUSIC MANAGER
 		23.4.6. Music Manaager
 			23.4.6.1. To the right of the string is an edit button
-            
-            
-                    (9.2.2.6.2.3) Below the back arrow and close button is a row consisting of:
-            (9.2.2.6.2.3.1) the string "Music URL"
-            (9.2.2.6.2.3.2) a text field
-                (9.2.2.6.2.3.2.1) the text field includes the text (not string) https://
-                    (9.2.2.6.2.3.2.1.1) the text is gray in color
-                    (9.2.2.6.2.3.2.1.2) this text disappears when the user taps into the text field.
-                (9.2.2.6.2.3.2.2) if the user taps the text field, the system keyboard opens
-                    (9.2.2.6.2.3.2.2.1) once the cursor is present in the text field, a press-hold event allows the user to paste URL text from the system clipboard
-            (9.2.2.6.2.3.3) a play button
-                (9.2.2.6.2.3.3.1) Default state: ic_play.xml
-                (9.2.2.6.2.3.3.2) Active state: programmatically changes the fill color of the default icon to #808080.
-                (9.2.2.6.2.3.3.3) If the user taps the play button
-                    (9.2.2.6.2.3.3.3.1) The play icon changes to its active state
-                    (9.2.2.6.2.3.3.3.2) The music URL is played
-                        (9.2.2.6.2.3.3.3.2.1) If no supported music is at the defined URL, a snackbar warning opens that says "This is not a valid music URL. Please provide an updated URL to play."
-                        (9.2.2.6.2.3.3.3.2.2) The music plays until
-                            (9.2.2.6.2.3.3.3.2.2.1) the user taps the play button again
-                            (9.2.2.6.2.3.3.3.2.2.2) the user taps anywhere else on the screen
-                            (9.2.2.6.2.3.3.3.2.2.3) the music ends
-                                (9.2.2.6.2.3.3.3.2.2.3.1) music does not loop
-                    (9.2.2.6.2.3.3.3.3) Once music ends or is stopped, the play icon changes to its default state.
-        (9.2.2.6.2.4) Below the music URL are the three most recently used URLs
-            (9.2.2.6.2.4.1) The most recently used URL is on top
-            (9.2.2.6.2.4.2) The least recently used URL is on bottom
-            (9.2.2.6.2.4.3) If the user taps one of these URLs
-                (9.2.2.6.2.4.3.1) it moves to the top of the three URL list
-                (9.2.2.6.2.4.3.2) the URL text is added to the text field.
-            (9.2.2.6.2.4.4) If the user adds a new music URL to the (9.2.2.6.2.3.2) text field, it will appear on the top of these three URLs the next time the user opens the settings.
-        (9.2.2.6.2.5) If the user opens the Music URL setting after having added a URL previously during this app-intent active session, the URL appears
-            (9.2.2.6.2.5.1) in the (9.2.2.6.2.3.2) text field
-            (9.2.2.6.2.5.2) on the top entry of the three most recently used URLs.
-
+ 			23.4.3.2. When the user taps the button, a new window replaces the settings menu with a slide animation
+			23.4.3.3. The Music Manager menu includes the following elements:
+				23.4.3.3.1. A back button (ic_back.xml) that returns the user to the settings window with a slide animation
+				23.4.3.3.2. A header string "MUSIC MANAGER" centered at the top of the window
+				23.4.3.3.3. A close button (ic_close_xml) at the top right of the window that closes the Mode Selection window AND the Settings window
+					23.4.3.3.3.1. If a user taps the screen outside of the Mode Selection window, both the Mode Selection and Settings windows close
+				23.4.3.3.4. A rule (line) that separates the header from the menu buttons.
+					23.4.3.3.4.1. Its width is the width of the window minus 10 px on each side
+					23.4.3.3.4.2. The rule does not connect with the window border
+				23.4.3.3.5. Below the rule is a list of up to four rows
+                    23.4.3.3.5.1. The first row is a text field with the string "Music URL"
+                        23.4.3.3.5.1.1. Font color 757575
+                        23.4.3.3.5.1.2. Ensure the word "URL" is translated as an abbreviation of "uniform resource locator" and not just the letters U-R-L.
+                    23.4.3.3.5.2. If the user taps the text field:
+                        23.4.3.3.5.2.1. the string disappears
+                        23.4.3.3.5.2.2. a cursor appears in the text field
+                        23.4.3.3.5.2.3. the system keyboard opens.
+                    23.4.3.3.5.3. If the user taps-and-holds the text field once the cursor is present, a Paste popup opens, where they can paste text from the system clipboard
+                    23.4.3.3.5.4. If the user presses enter on the keyboard or taps outside of the text window
+                        23.4.3.3.5.4.1. the cursor disappears
+                        23.4.3.3.5.4.2. the system keyboard closes
+                        23.4.3.3.5.4.3. any entered text is saved
+                        23.4.3.3.5.4.4. song data is added to row 2
+                            23.4.3.3.5.4.4.1. Song title (if the URL provides it)
+                            23.4.3.3.5.4.4.2. URL
+                        23.4.3.3.5.4.5. Any existing URLs move one spot downward
+                            23.4.3.3.5.4.5.1. A URL in row 2 would move to row 3
+                            23.4.3.3.5.4.5.2. A URL in row 4 would be removed
+                    23.4.3.3.5.5. Rows 2 - 4 are the three most recently used URLs.
+                    23.4.3.3.5.6. A user may tap a recent URL rather than the text field. If so:
+                        23.4.3.3.5.6.1. that URL moves to row 2 if it was not already there
+                        23.4.3.3.5.6.2. any other URLs move down just as in 23.4.3.3.5.4.5.
+                    23.4.3.3.5.7. Rows 2 - 4 each includes a play play button (ic_play.xml) at the far right
+                    23.4.3.3.5.8. If the user taps the play button:
+                        23.4.3.3.5.8.1. the button changes to a stop (ic_stop.xml) button in the active state (color change and background)
+                        23.4.3.3.5.8.2. the music from that URL plays
+                            23.4.3.3.5.8.2.1. If the URL does not lead to a playable music source, a snackbar opens with the warning string, "This is not a valid music URL. Please provide an updated URL to play."
+                    23.4.3.3.5.9. If the user taps the stop button:
+                        23.4.3.3.5.9.1. the button changes to a play button in the default state
+                        23.4.3.3.5.9.2. music stops playing
+                    23.4.3.3.5.10. If the song plays to its end:
+                        23.4.3.3.4.10.1. the stop button changes to a play button in the default state
+                        23.4.3.3.4.10.2. music stops playing. It does not loop.
 
 ##### ALARM
 		23.4.7. Alarm
@@ -464,28 +504,72 @@ Purramid Pets is a classroom management tool that displays a virtual pet that st
             23.4.8.4. When Marathon is toggled "Off", animations play for 4 seconds and then stop.
 
 
-### PET SPACE
-24.
+### PET SPACE and ACTION BUTTONS
 
 #### REWARDS MODE FUNCTIONALITY
-
+24. If a user taps the reward button:
+    24.1. the button changes to an active state (color and background)
+    24.2. a pop-up menu opens with a smooth animation
+        24.2.1. The menu includes an alphabetical list of the celebrations that can be chosen, matching the list in 23.4.4.3.5.2.1.
+        24.2.2. Each reward is followed by its redemptoin cost in parentheses, as defined in 23.4.4.3.5.1.3.
+    24.3. When the user chooses a reward, the redemption cost is subtracted from the point total displayed in the point total circle
+        24.3.1. For example, a class has 10 reward points. A student chooses to redeem Dance Party, which is set to 5 points in the settings. The value in the total point circle decreases from 10 to 5.
+    24.4. If the user taps anywhere outside the reward redemption menu, the menu closes with a smooth animation.
+25. If a user taps the minus button, the total displayed in the point total circle reduces by the increment defined in 23.4.4.3.5.1.3. 
+    25.1. Points total can never be less than 0.
+26. If a user taps the point total circle:
+    26.1. A text box appears in the circle
+    26.2. A cursor appears in the text field after the number shown
+    26.3. The system numberpad opens
+        26.3.1. If the user taps enter on the numberpad or taps outside the text field
+            26.3.1.1. the text box disappears
+            26.3.1.2. the cursor disappears
+            26.3.1.3. the system numberpad closes
+            26.3.1.4. the number liste din the text box is set as the current point total
+27. If a user taps the plus button, the total displayed in the point total circle increases by the increment defined in 23.4.4.3.5.1.3.
+    27.1. Points total can never be greater than 99.
+28. If a user selects the reward "Treat", one of three animations randomly plays
+    28.1. "Kibble"
+    28.2. "Meatball"
+    28.3. "Paste"
+29. If a user selects the reward "Trick", one of three animations randomly plays
+    29.1. "Backflip"
+    29.2. "Roll over"
+    29.3. "Shake hands"
 
 #### RESPONSIVE MODE FUNCTIONALITY
-
+30. When in Responsive Mode:
+    30.1. the action buttons are not shown
+    30.2. the pet space increases to fill this new space
+    30.3. Decibel values are measured every 2 seconds
+31. The pet behavior is based on the settings defined in 23.4.2.
+32. If the app loses access to the microphone used to measure decibel levels:
+    32.1. A snackbar opens with a warning: "Microphone not detected. Change to Rewards?"
+        32.1.1. This includes 
+            32.1.1.1. a cancel button that closes the snackbar and activates the "sleep" animation
+            32.1.1.2. a switch button (with the string "Switch") that closes the snackbar and changes mode to Rewards
+        32.1.2. The app should ping for a microphone every 0.2. seconds while the snackbar is open
+    32.2. If the microphone is detected before the user chooses Cancel or Switch, the snackbar closes on its own.
 
 #### ALARM FUNCTIONALITY
-
-
-### ACTION BUTTONS
-
+33. If an alarm is set and that time is reached:
+    33.1. an alarm icon (ic_alarm.xml) appears in the bottom buffer of the pet space
+        33.1.1. the icon color is red
+        33.1.2. The icon animates, tilting left then tilting right, back and forth
+    33.2. the chosen animation occurs
+34. Both the alarm icon and the pet animation continue until the user taps the app window.
+    34.1. Once tapped:
+        34.1.1. the alarm icon disappears
+        34.1.2. the pet behavior returns to its previously defined state
+35. If the app is closed while an alarm is active, it is not active when the app launches again. 
 
 
 ## ACCESSIBLE DESIGN AND NAVIGATION
-x. Coloring must meet WCAG 2.2 AA contrast standards
-x. Users may use a connected keyboard or switch to navigate the app interface
-	x.1. When navigating with a connected device, a focus box appears around the currently selected text, image, or button
-		x.1.1. Focus box color is 1976D2
-	x.2. Focus box moves in a logical order, left to right, top to bottom
-		x.2.1. A focus box should not jump around the screen but follow an easily discernable pattern
-	x.3. Reference purramid_accessible_navigation.xml for key-specific requirements
+36. Coloring must meet WCAG 2.2 AA contrast standards
+37. Users may use a connected keyboard or switch to navigate the app interface
+	37.1. When navigating with a connected device, a focus box appears around the currently selected text, image, or button
+		37.1.1. Focus box color is 1976D2
+	37.2. Focus box moves in a logical order, left to right, top to bottom
+		37.2.1. A focus box should not jump around the screen but follow an easily discernable pattern
+	37.3. Reference purramid_accessible_navigation.xml for key-specific requirements
 
