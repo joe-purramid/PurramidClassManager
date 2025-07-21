@@ -571,5 +571,5 @@ Purramid Pets is a classroom management tool that displays a virtual pet that st
 		37.1.1. Focus box color is 1976D2
 	37.2. Focus box moves in a logical order, left to right, top to bottom
 		37.2.1. A focus box should not jump around the screen but follow an easily discernable pattern
-	37.3. Reference purramid_accessible_navigation.xml for key-specific requirements
+	37.3. Reference purramid_accessible_navigation.txt for key-specific requirements
 
