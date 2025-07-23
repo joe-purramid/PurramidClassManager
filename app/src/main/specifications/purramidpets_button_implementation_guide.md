@@ -16,6 +16,7 @@ Adding background tinting addresses several critical touch interface challenges:
 ## Design Standards
 
 - **Active State Color**: `#1976D2` (Material Blue 700)
+    - ic_info.xml is an exception to this rule
 - **Inactive State Color**: `#757575` (Medium Gray)  
 - **Active Background**: `#E3F2FD` (Light Blue - provides subtle contrast without overwhelming the icon)
 - **Touch Feedback**: Ripple effect on all interactive buttons

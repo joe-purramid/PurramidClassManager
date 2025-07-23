@@ -35,7 +35,7 @@
 
 ## Button Activation
 - Button icons will be 757575 when inactive (default state)
-- Button icons will be 2196F3 when active (active state)
+- Button icons will be 1976D2 when active (active state)
 - Button background will be E3F2FD when active
 - A ripple effect will occur with the onTouch event that activates the button.
 - Use isActivated property for boolean on/off states
@@ -47,7 +47,7 @@
 	- Cancel buttons
 		- Appear on the left
 		- Have a transparent background
-		- Have an outline color of 2196F3
+		- Have an outline color of 757575
 	- Accept buttons
 		- Appear on the right
 		- Have a color 2196F3 for the background fill and the outline

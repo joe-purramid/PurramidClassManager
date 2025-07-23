@@ -4,7 +4,7 @@ Purramid Pets is a classroom management tool that displays a virtual pet that st
 ## **Technical Implementation Notes**
 - Service/Activity type: Foreground Service (PurrPetsService) + Settings Activity (PurrPetsActivity)
 - Free-form window support: Yes
-- Multi-window support: No
+- Multi-instance support: No, one instance only
 - Requires permissions:
   - SYSTEM_ALERT_WINDOW (for overlay - requested on first launch)
   - FOREGROUND_SERVICE (automatic)
@@ -279,8 +279,8 @@ Purramid Pets is a classroom management tool that displays a virtual pet that st
 							23.4.2.4.7.4.1.1. The arrow rotates in a smooth animation to face upuward
 							23.4.2.4.7.4.1.2. A drop-down menu opens with a smooth animation
 							23.4.2.4.7.4.1.3. A menu displays animation options
-								23.4.8.4.1.3.1. The current animation shows in the original drop-down menu field
-								23.4.8.4.1.3.2. The remaining animation options are listed in alphanumeric order
+								23.4.2.4.7.4.1.3.1. The current animation shows in the original drop-down menu field
+								23.4.2.4.7.4.1.3.2. The remaining animation options are listed in alphanumeric order
 							23.4.2.4.7.4.1.4. Animation options are the same as for green
 						23.4.2.4.7.4.2. The default animation for red is "crying"
 
