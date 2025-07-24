@@ -5,7 +5,7 @@
 **Database Name**: `purramid_pets_db`  
 **ORM Framework**: Room Database  
 **Database Version**: 1  
-**Migration Strategy**: Destructive (acceptable for v1 since no user data loss critical)
+**Migration Strategy**: Hybrid - Destructive in DEBUG builds, proper migrations in RELEASE builds
 
 ## Entity Definitions
 
@@ -347,7 +347,7 @@ interface AlarmDao {
         Alarm::class
     ],
     version = 1,
-    exportSchema = false
+    exportSchema = true // Enable schema export for migration tracking
 )
 @TypeConverters(Converters::class)
 abstract class PurrPetsDatabase : RoomDatabase() {
@@ -357,6 +357,15 @@ abstract class PurrPetsDatabase : RoomDatabase() {
     abstract fun rewardSettingsDao(): RewardSettingsDao
     abstract fun musicUrlDao(): MusicUrlDao
     abstract fun alarmDao(): AlarmDao
+    
+    companion object {
+        // Migration framework ready for future schema changes
+        val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                // Future migrations will be implemented here
+            }
+        }
+    }
 }
 ```
 
@@ -386,7 +395,18 @@ object DatabaseModule {
             context,
             PurrPetsDatabase::class.java,
             "purramid_pets_db"
-        ).build()
+        ).apply {
+            if (BuildConfig.DEBUG) {
+                // Development: Allow destructive migration for faster iteration
+                fallbackToDestructiveMigration()
+            } else {
+                // Production: Require proper migrations to preserve user data
+                addMigrations(
+                    PurrPetsDatabase.MIGRATION_1_2
+                    // Add future migrations here
+                )
+            }
+        }.build()
     }
     
     @Provides
